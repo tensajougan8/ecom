@@ -94,7 +94,69 @@ paths:
           description: Catalog created
         '500':
           description: Server error 
-              
+
+  /buyer/list-of-sellers:
+    get:
+      summary: Retrieve a list of all sellers
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Seller'
+        '500':
+          description: Error
+    
+  /buyer/seller-catalog/{seller_id}:
+    get:
+      summary: Retrieve the catalog for a specific seller
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: seller_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /buyer/create-order/{seller_id}:
+    post:
+      summary: Create an order for a specific seller
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: seller_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productID:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Order created
+            
 components:
   securitySchemes:
     bearerAuth:
@@ -122,5 +184,17 @@ components:
     UserType:
       type: string
       enum: [BUYER, SELLER]
+    
+    Seller:
+      type: object
+      properties:
+        _id:
+          type: string
+        userName:
+          type: string
+        userType:
+          type: string
+        __v:
+          type: integer
 
     
