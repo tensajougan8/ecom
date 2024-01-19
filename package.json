@@ -10,5 +10,8 @@
   },
   "keywords": [],
   "author": "Valdo",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "semantic-release": "^23.0.0"
+  }
 }
