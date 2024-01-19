@@ -52,3 +52,34 @@ paths:
           description: Unauthorized
         '404':
           description: Invalid email or password
+              
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        userName:
+          type: string
+        password:
+          type: string
+      required:
+        - name
+        - password
+
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+
+    UserType:
+      type: string
+      enum: [BUYER, SELLER]
+
+    
