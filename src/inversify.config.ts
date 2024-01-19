@@ -10,6 +10,11 @@ import { SellerRepository } from './repositories/seller';
 import { SellerController } from './controllers/seller';
 import { ISellerService } from './services/interfaces/seller.interface';
 import { SellerService } from './services/seller';
+import { IBuyerRepository } from './repositories/interfaces/buyer.interface';
+import { BuyerRepository } from './repositories/buyer';
+import { IBuyerService } from './services/interfaces/buyer.interface';
+import { BuyerService } from './services/buyer';
+import { BuyerController } from './controllers/buyer';
 
 const myContainer = new Container();
 myContainer.bind<AuthController>(TYPES.AuthController).to(AuthController);
@@ -20,5 +25,7 @@ myContainer
   .to(SellerRepository);
 myContainer.bind<SellerController>(TYPES.SellerController).to(SellerController);
 myContainer.bind<ISellerService>(TYPES.SellerService).to(SellerService);
-
+myContainer.bind<IBuyerRepository>(TYPES.BuyerRepository).to(BuyerRepository);
+myContainer.bind<IBuyerService>(TYPES.BuyerService).to(BuyerService);
+myContainer.bind<BuyerController>(TYPES.BuyerController).to(BuyerController);
 export { myContainer };
