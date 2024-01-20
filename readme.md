@@ -1,6 +1,4 @@
-# E-commerce API # Your Project Name
-
-[![GitHub release](https://img.shields.io/github/release/tensajougan8/ecom.svg)](https://github.com/tensajougan8/ecom/releases)
+# E-commerce API [![GitHub release](https://img.shields.io/github/release/tensajougan8/ecom.svg)](https://github.com/tensajougan8/ecom/releases)
 
 <!-- Other content of your README -->
 
